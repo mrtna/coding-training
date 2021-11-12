@@ -38,6 +38,17 @@ class AddTwoNumbersTest {
 	}
 
 	@Test
+	void addTwoNumber_44_33_should_return_7() {
+		ListNode first = new ListNode(4,new ListNode(4));
+		ListNode second = new ListNode(3, new ListNode(3));
+
+		ListNode node = new AddTwoNumbers().addTwoNumbers(first, second);
+
+		ListNode expected = new ListNode(7, new ListNode(7));
+		Assertions.assertEquals(expected, node);
+	}
+
+	@Test
 	void addTwoNumber_55_55_should_return_011() {
 		ListNode first = new ListNode(5, new ListNode(5));
 		ListNode second = new ListNode(5, new ListNode(5));

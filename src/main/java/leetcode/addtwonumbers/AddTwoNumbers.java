@@ -1,6 +1,7 @@
 package leetcode.addtwonumbers;
 
 import java.util.Optional;
+import java.util.function.Supplier;
 
 public class AddTwoNumbers {
 
@@ -16,11 +17,16 @@ public class AddTwoNumbers {
 
 	private void addNextListNodes(ListNode first, ListNode second, ListNode listNode) {
 		while (first.next != null || second.next != null) {
-			first = Optional.ofNullable(first.next).orElse(new ListNode(0));
-			second = Optional.ofNullable(second.next).orElse(new ListNode(0));
-			listNode.next = createListNodeFromSum(first.val + second.val + listNode.next.val);
+			first = Optional.ofNullable(first.next).orElseGet(listNodeZero());
+			second = Optional.ofNullable(second.next).orElseGet(listNodeZero());
+			listNode.next = createListNodeFromSum(first.val + second.val + Optional.ofNullable(listNode.next).orElseGet(
+					listNodeZero()).val);
 			listNode = listNode.next;
 		}
+	}
+
+	private Supplier<ListNode> listNodeZero() {
+		return () -> new ListNode(0);
 	}
 
 	private ListNode createListNodeFromSum(final int sum) {
