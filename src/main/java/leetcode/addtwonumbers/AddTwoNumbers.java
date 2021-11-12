@@ -17,12 +17,15 @@ public class AddTwoNumbers {
 
 	private void addNextListNodes(ListNode first, ListNode second, ListNode listNode) {
 		while (first.next != null || second.next != null) {
-			first = Optional.ofNullable(first.next).orElseGet(listNodeZero());
-			second = Optional.ofNullable(second.next).orElseGet(listNodeZero());
-			listNode.next = createListNodeFromSum(first.val + second.val + Optional.ofNullable(listNode.next).orElseGet(
-					listNodeZero()).val);
+			first = getNodeOrZero(first.next);
+			second = getNodeOrZero(second.next);
+			listNode.next = createListNodeFromSum(first.val + second.val + getNodeOrZero(listNode.next).val);
 			listNode = listNode.next;
 		}
+	}
+
+	private ListNode getNodeOrZero(final ListNode node) {
+		return Optional.ofNullable(node).orElseGet(listNodeZero());
 	}
 
 	private Supplier<ListNode> listNodeZero() {
@@ -30,13 +33,10 @@ public class AddTwoNumbers {
 	}
 
 	private ListNode createListNodeFromSum(final int sum) {
-		ListNode listNode;
-		boolean addOneToNext = sum >= 10;
-		if (addOneToNext) {
-			listNode = new ListNode(sum % 10, new ListNode(1));
+		if (sum >= 10) {
+			return new ListNode(sum % 10, new ListNode(1));
 		} else {
-			listNode = new ListNode(sum);
+			return new ListNode(sum);
 		}
-		return listNode;
 	}
 }
