@@ -35,4 +35,14 @@ class LongestSubstringWithoutRepeatingTest {
 		Assertions.assertEquals(3, new LongestSubstringWithoutRepeating().getLength("pwwkew"));
 	}
 
+	@Test
+	void aab_should_return_2() {
+		Assertions.assertEquals(2, new LongestSubstringWithoutRepeating().getLength("aab"));
+	}
+
+	@Test
+	void dvdf_should_return_3() {
+		Assertions.assertEquals(3, new LongestSubstringWithoutRepeating().getLength("dvdf"));
+	}
+
 }
