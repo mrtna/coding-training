@@ -1,11 +1,15 @@
 package leetcode.longestpalindromicsubstring;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LongestPalindromicSubstring {
 
+	Set<String> palindromes = new HashSet<>();
 	public String longestPalindrome(final String s) {
 		String longestPalindrome = "";
 		for (int i = 0; i < s.length(); i++) {
-			String newPalindrome = getPalindromeStartingFromChar(s, i);
+			String newPalindrome = getPalindromeFromIndex(s, i);
 			if (newPalindrome.length() > longestPalindrome.length()) {
 				longestPalindrome = newPalindrome;
 			}
@@ -14,14 +18,18 @@ public class LongestPalindromicSubstring {
 		return longestPalindrome;
 	}
 
-	private String getPalindromeStartingFromChar(final String string,
-												 final int startIndex) {
+	private String getPalindromeFromIndex(final String string,
+										  final int startIndex) {
 		String longestPalindrome = "";
 		StringBuilder currentString = new StringBuilder();
 		for (int j = startIndex; j < string.length(); j++) {
 			currentString.append(string.charAt(j));
-			if (currentString.length() > longestPalindrome.length() && isPalindrome(currentString.toString())) {
-				longestPalindrome = currentString.toString();
+			String current = currentString.toString();
+			if (!palindromes.contains(current) && isPalindrome(current)) {
+				palindromes.add(current);
+				longestPalindrome = current;
+			} else if (palindromes.contains(current)) {
+				longestPalindrome = current;
 			}
 		}
 		return longestPalindrome;
