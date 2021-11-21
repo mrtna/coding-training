@@ -10,3 +10,4 @@ I use this repository to keep track of the problems I resolve on algorithm websi
 - [Median of two sorted arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)
 - [Validate Parentheses](https://leetcode.com/problems/valid-parentheses)
 - [Longest substring without repeating](https://leetcode.com/problems/longest-substring-without-repeating-characters)
+- [Best time to buy and sell stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
