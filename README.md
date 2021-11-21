@@ -2,3 +2,11 @@
 
 I use this repository to keep track of the problems I resolve on algorithm websites like Leetcode.  
 
+# Leetcode
+
+## Exercises done
+- [Add two numbers](https://leetcode.com/problems/add-two-numbers/)
+- [TwoSum](https://leetcode.com/problems/two-sum)
+- [Median of two sorted arrays](https://leetcode.com/problems/median-of-two-sorted-arrays)
+- [Validate Parentheses](https://leetcode.com/problems/valid-parentheses)
+- [Longest substring without repeating](https://leetcode.com/problems/longest-substring-without-repeating-characters)
